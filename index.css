@@ -1,30 +1,115 @@
-body{
-	height: 100%;
-	width: 100%;
-	padding: 50px;
-	background-attachment: fixed;
-	background-color: azure;
-}
-.container{
-	height: 100%;
-	width: 80%;
-	margin: auto;
-	padding: 10px;
-	box-shadow: inset 5px 2px 20px 0px b;
-}
-.container div{
-	margin: 20px;
-}
-.otherday div{
-	margin: 0px;
-	padding: 20px;
-	border-radius: 20px;
-}
-.p{
-	box-shadow: 14px 6px 20px 3px slategray;
-	border-radius: 20px;;
-}
-.size{
-	height: 200px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-image: url('180410.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.container-fluid {
+    height: 100%;
+    width: 100%;
+    color: antiquewhite;
+}
+
+
+/* today temparature and future the upper half of the page */
+
+.container-fluid .todaytmpandfuture {
+    width: 100%;
+    height: 50%;
+}
+
+
+/* today data */
+
+.container-fluid .todaydata {
+    width: 100%;
+    height: 50%;
+}
+
+
+/* today temparature */
+
+.todaytmp {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+
+/* future */
+
+.future {
+    width: 50%;
+    height: 100%;
+}
+
+.todaytmp>div:first-child {
+    width: 50%;
+    height: 100%;
+    padding-top: 100px;
+    float: left;
+    padding-left: 100px;
+    padding-right: 20px;
+}
+
+.todaytmp>div:last-child {
+    width: 50%;
+    height: 100%;
+    padding-top: 100px;
+    float: left;
+}
+
+.bigi {
+    font-size: 70px;
+    color: floralwhite;
+}
+
+.future>div {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: large;
+    font-style: oblique;
+    padding-top: 10px;
+    ;
+}
+
+.future>div:not(:last-child) {
+    border-bottom: 1px solid rgb(184, 219, 187);
+}
+
+.date {
+    height: 100%;
+    width: 40%;
+    float: left;
+}
+
+.icon {
+    height: 100%;
+    width: 20%;
+    float: left;
+}
+
+.temp {
+    height: 100%;
+    width: 40%;
+    float: left;
+}
+
+i:not(.bigi) {
+    font-size: 30px;
+    color: rgb(162, 194, 224);
+}
+
+.todaydata div {
+    height: 100%;
+    width: 100%;
+}

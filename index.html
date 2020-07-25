@@ -1,79 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-	<title>Weather</title>
-	<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Weather</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="weather-icons.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-	
-<link rel="stylesheet" type="text/css" href="index.css">
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+
+    </style>
 </head>
+
 <body>
-	<div class="container p">
-	<div>
-	<form>
-	        <select class="form-control select2">
-	           <option>Select Your City...</option> 
-	           <option>Car</option> 
-	           <option>Bike</option> 
-	           <option>Scooter</option> 
-	           <option>Cycle</option> 
-	           <option>Horse</option> 
-	        </select>
-	    </form>
-</div>
-	<div class="card-deck today">
-		<div class="card bg-success size">
-			<div class="card-body text-center">
-				<p>Here is today's weather</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-deck otherday">
-    <div class="card bg-primary size">
-      <div class="card-body text-center">
-        <p class="card-text">30C</p>
-      </div>
+    <!-- today weather -->
+    <div class="container-fluid">
+        <div class="row todaytmpandfuture">
+            <div class="col-md-6 todaytmp">
+                <div>
+                    <h3>34 / 27</h3>
+                    <h3>Saturday, July 25</h3>
+                </div>
+                <div>
+                    <i class="fas fa-cloud-rain bigi"></i>
+                    <h3>Cloudy</h3>
+                </div>
+            </div>
+            <div class="col-md-6 future">
+                <div>
+                    <div class="date">Tomorrow, Jul 26</div>
+                    <div class="icon"><i class="fas fa-cloud-sun-rain"></i></div>
+                    <div class="temp">35 / 27</div>
+                </div>
+                <div>
+                    <div class="date">Mon, Jul 27</div>
+                    <div class="icon"><i class="fas fa-cloud-sun"></i></div>
+                    <div class="temp">34 / 27</div>
+                </div>
+                <div>
+                    <div class="date">Tue, Jul 28</div>
+                    <div class="icon"><i class="fas fa-poo-storm"></i></div>
+                    <div class="temp">33 / 27</div>
+                </div>
+                <div>
+                    <div class="date">Wed, Jul 29</div>
+                    <div class="icon"><i class="fas fa-cloud-sun"></i></div>
+                    <div class="temp">32 / 26</div>
+                </div>
+                <div>
+                    <div class="date">Thu, Jul 30</div>
+                    <div class="icon"><i class="fas fa-cloud-sun"></i></div>
+                    <div class="temp">32 / 27</div>
+                </div>
+            </div>
+        </div>
+        <div class="row todaydata">
+            <div class="col-md-12">
+
+            </div>
+        </div>
     </div>
-    <div class="card bg-warning size">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the second card</p>
-      </div>
-    </div>
-    <div class="card bg-success size">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the third card</p>
-      </div>
-    </div>
-    <div class="card bg-danger size">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the fourth card</p>
-      </div>
-    </div>
-    <div class="card bg-danger size">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the fourth card</p>
-      </div>
-    </div>
-    <div class="card bg-danger size">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the fourth card</p>
-      </div>
-    </div>  
-  </div>
-	</div>
 </body>
 <script src="index.js"></script>
+
 </html>
