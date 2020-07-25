@@ -2,10 +2,12 @@ body{
 	height: 100%;
 	width: 100%;
 	padding: 50px;
+	background-attachment: fixed;
+	background-color: azure;
 }
 .container{
 	height: 100%;
-	width: 100%;
+	width: 80%;
 	margin: auto;
 	padding: 10px;
 	box-shadow: inset 5px 2px 20px 0px b;
@@ -19,5 +21,10 @@ body{
 	border-radius: 20px;
 }
 .p{
-	box-shadow: 14px 6px 20px 3px black;
+	box-shadow: 14px 6px 20px 3px slategray;
+	border-radius: 20px;;
 }
+.size{
+	height: 200px;
+}
+
