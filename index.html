@@ -1,78 +1,108 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-    <title>Weather</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="weather-icons.min.css">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <style>
-
-    </style>
+  <title>Weather</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
-
 <body>
-    <!-- today weather -->
-    <div class="container-fluid">
-        <div class="row todaytmpandfuture">
-            <div class="col-md-6 todaytmp">
-                <div>
-                    <h3>34 / 27</h3>
-                    <h3>Saturday, July 25</h3>
-                </div>
-                <div>
-                    <i class="fas fa-cloud-rain bigi"></i>
-                    <h3>Cloudy</h3>
-                </div>
-            </div>
-            <div class="col-md-6 future">
-                <div>
-                    <div class="date">Tomorrow, Jul 26</div>
-                    <div class="icon"><i class="fas fa-cloud-sun-rain"></i></div>
-                    <div class="temp">35 / 27</div>
-                </div>
-                <div>
-                    <div class="date">Mon, Jul 27</div>
-                    <div class="icon"><i class="fas fa-cloud-sun"></i></div>
-                    <div class="temp">34 / 27</div>
-                </div>
-                <div>
-                    <div class="date">Tue, Jul 28</div>
-                    <div class="icon"><i class="fas fa-poo-storm"></i></div>
-                    <div class="temp">33 / 27</div>
-                </div>
-                <div>
-                    <div class="date">Wed, Jul 29</div>
-                    <div class="icon"><i class="fas fa-cloud-sun"></i></div>
-                    <div class="temp">32 / 26</div>
-                </div>
-                <div>
-                    <div class="date">Thu, Jul 30</div>
-                    <div class="icon"><i class="fas fa-cloud-sun"></i></div>
-                    <div class="temp">32 / 27</div>
-                </div>
-            </div>
-        </div>
-        <div class="row todaydata">
-            <div class="col-md-12">
 
-            </div>
+<div class="jumbotron text-center" style="margin-bottom:0; background-image: url(180421.jpg); background-repeat: no-repeat; background-size: 100% 100%; color: wheat;">
+  <h2>34&#8451; / 27&#8451;</h2>
+  <h3>Saturday, July 26</h3> 
+  <i class="fas fa-cloud-rain bigi"></i>
+  <h3>Cloudy</h3>
+</div>
+
+<nav class="navbar">
+  <input type="text" class="form-control" name="search" placeholder="Search Your City...">
+</nav>
+
+<div class="container" style="margin-top:30px; text-align: center; overflow-y: scroll;">
+    <div class="row" style="margin-bottom:30px; overflow-x: scroll;">
+        <div class="col-sm-2">
+            <p>10am</p>
+            <i class="fas fa-cloud-sun"></i>
+            <p>30&#8451;/32&#8451;</p>
+        </div>
+        <div class="col-sm-2">
+            <p>11am</p>
+            <i class="fas fa-cloud-sun"></i>
+            <p>30&#8451;/32&#8451;</p>
+        </div>
+        <div class="col-sm-2">
+            <p>12pm</p>
+            <i class="fas fa-cloud-sun"></i>
+            <p>30&#8451;/32&#8451;</p>
+        </div>
+        <div class="col-sm-2">
+            <p>1pm</p>
+            <i class="fas fa-cloud-sun"></i>
+            <p>30&#8451;/32&#8451;</p>
+        </div>
+        <div class="col-sm-2">
+            <p>2pm</p>
+            <i class="fas fa-cloud-sun"></i>
+            <p>30&#8451;/32&#8451;</p>
+        </div>
+        <div class="col-sm-2">
+            <p>3pm</p>
+            <i class="fas fa-cloud-sun"></i>
+            <p>30&#8451;/32&#8451;</p>
         </div>
     </div>
-</body>
-<script src="index.js"></script>
+  <div class="row">
+    <div class="col-sm-4">
+        <h2>Today's Weather</h2>
+        <p>Temparature: 34&#8451C</p>
+        <p>Feels like: 30&#8451C</p>
+        <p>Wind: 10Km/h</p>
+        <p>Humidity: 85%</p>
+        <p>Amount Of Rain: 5mm</p>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-8 future">
+      <h2>Forcast For The Next 4 Days</h2>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="jumbotron text-center bg-primary" style="margin-bottom:0; color: aliceblue;">
+    <h1>Contact Info</h1>
+    <p>Email: someshwarsarkar@gmail.com</p>
+
+</div>
+
+</body>
 </html>
