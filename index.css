@@ -3,6 +3,12 @@
     margin: 0px;
     border-radius: 0px;
 }
+body{
+  background-color: aliceblue;
+}
+::-webkit-scrollbar {
+  display: none;
+}
 .fakeimg {
     height: 200px;
     background: #aaa;
@@ -17,10 +23,11 @@ input[type=text] {
   transition: width 0.5s ease-in-out;
   border-radius: 30px;
 } 
-
-/* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
   width: 100%;
+}
+.future{
+  overflow-y: scroll;
 }
 .future div{
     width: 100%;
@@ -34,6 +41,7 @@ input[type=text]:focus {
 .today {
   overflow: auto;
   white-space: nowrap;  
+  margin-bottom: 30px;
   }
   
   .today div {
@@ -45,7 +53,12 @@ input[type=text]:focus {
 i{
   font-size: 25px;
 }
-
+.navbar .location{
+  height: 50px; 
+  width: 50px; 
+  border-radius: 100px; 
+  background-color: lightgreen;
+}
 @media (max-width: 600px){
 
 }
