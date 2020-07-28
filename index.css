@@ -16,16 +16,14 @@ body{
   .bigi {
     font-size: 70px;
 }
-input[type=text] {
+.location-search {
   width: 200px;
   height: 50px;
-  -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.5s ease-in-out;
   border-radius: 30px;
+  float: left;
+  margin-right: 5px;
 } 
-input[type=text]:focus {
-  width: 100%;
-}
 .future{
   overflow-y: scroll;
 }
