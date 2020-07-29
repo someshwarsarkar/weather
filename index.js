@@ -204,7 +204,7 @@ function datecoverter(timestamp){
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position){
         console.log(position);
-        //cityname(position.coords.latitude, position.coords.longitude);
+        cityname(position.coords.latitude, position.coords.longitude);
        weatherdata(position.coords.latitude, position.coords.longitude); 
   
       });
@@ -217,7 +217,7 @@ function datecoverter(timestamp){
        fetch('https://api.openweathermap.org/data/2.5/weather?q='+name+'&appid=4d8fb5b93d4af21d66a2948710284366')
        .then(response => response.json())
        .then(data =>{console.log(data);
-        //cityname(data.coord.lat, data.coord.lon); 
+        cityname(data.coord.lat, data.coord.lon); 
         weatherdata(data.coord.lat, data.coord.lon) ;
       
       });
