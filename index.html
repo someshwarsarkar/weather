@@ -11,185 +11,75 @@
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="index.js"></script>
 </head>
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0; border-radius: 0px; background-image: url(180421.jpg); background-repeat: no-repeat; background-size: 100% 100%; color: wheat;">
-  <nav class="navbar" style="margin-top: -30px;"><button class="location"><i class="fa">&#xf124;</i></button></nav>
-  <h2>34&#8451; / 27&#8451;</h2>
-  <h3>Saturday, July 26</h3> 
-  <i class="fas fa-cloud-rain bigi"></i>
-  <h3>Cloudy</h3>
+  <nav class="navbar" style="margin-top: -30px;"><button id="location-button" class="location"><i class="fa">&#xf124;</i></button></nav>
+  <h3 id="placename">place name</h3>
+  <h2  id="currenttemp">34&#8451; / 27&#8451;</h2>
+  <h3 id="currentdtday">Saturday</h3><h3 id="currentdtfull">July 26</h3> 
+  <i><img id="currentweathericon" src="icon.png"></i>
+  <h3 id="currentweatherdescription">Cloudy</h3>
 </div>
 
 <nav class="navbar">
   <div>
-  <input type="text" class="form-control location-search" name="search" placeholder="Search Your City...">
-  <button class="btn btn-success" style="float: left; height: 50px; width: 50px; border-radius: 50px;"><i class="fa fa-search"></i></button>
+  <input type="text" id="inputname" class="form-control location-search" name="search" placeholder="Search Your City...">
+  <button class="btn btn-success"  id="submit" type="submit" style="float: left; height: 50px; width: 50px; border-radius: 50px;"><i class="fa fa-search"></i></button>
 </div>
 </nav>
 
 <div class="container" >
-    <div class="today">
-        <h2>Next 12hours forcast</h2>
-        <div>
-            <p>10am</p>
-            <i class="fas fa-cloud-sun"></i>
-            <p>30;/32;</p>
-        </div>
-        <div>
-            <p>11am</p>
-            <i class="fas fa-cloud-sun"></i>
-            <p>30;/32;</p>
-        </div>
-        <div>
-            <p>12pm</p>
-            <i class="fas fa-cloud-sun"></i>
-            <p>30;/32;</p>
-        </div>
-        <div>
-            <p>1pm</p>
-            <i class="fas fa-cloud-sun"></i>
-            <p>30;/32;</p>
-        </div>
-        <div>
-            <p>2pm</p>
-            <i class="fas fa-cloud-sun"></i>
-            <p>30;/32;</p>
-        </div>
-        <div>
-            <p>3pm</p>
-            <i class="fas fa-cloud-sun"></i>
-            <p>30;/32;</p>
-        </div>
-        <div>
-          <p>10am</p>
-          <i class="fas fa-cloud-sun"></i>
-          <p>30;/32;</p>
-      </div>
-      <div>
-          <p>11am</p>
-          <i class="fas fa-cloud-sun"></i>
-          <p>30;/32;</p>
-      </div>
-      <div>
-          <p>12pm</p>
-          <i class="fas fa-cloud-sun"></i>
-          <p>30;/32;</p>
-      </div>
-      <div>
-          <p>1pm</p>
-          <i class="fas fa-cloud-sun"></i>
-          <p>30;/32;</p>
-      </div>
-      <div>
-          <p>2pm</p>
-          <i class="fas fa-cloud-sun"></i>
-          <p>30;/32;</p>
-      </div>
-      <div>
-          <p>3pm</p>
-          <i class="fas fa-cloud-sun"></i>
-          <p>30;/32;</p>
-      </div>
-      <div>
-        <p>10am</p>
-        <i class="fas fa-cloud-sun"></i>
-        <p>30;/32;</p>
-    </div>
-    <div>
-        <p>11am</p>
-        <i class="fas fa-cloud-sun"></i>
-        <p>30;/32;</p>
-    </div>
-    <div>
-        <p>12pm</p>
-        <i class="fas fa-cloud-sun"></i>
-        <p>30;/32;</p>
-    </div>
-    <div>
-        <p>1pm</p>
-        <i class="fas fa-cloud-sun"></i>
-        <p>30;/32;</p>
-    </div>
-    <div>
-        <p>2pm</p>
-        <i class="fas fa-cloud-sun"></i>
-        <p>30;/32;</p>
-    </div>
-    <div>
-        <p>3pm</p>
-        <i class="fas fa-cloud-sun"></i>
-        <p>30;/32;</p>
-    </div>
-    <div>
-      <p>10am</p>
-      <i class="fas fa-cloud-sun"></i>
-      <p>30;/32;</p>
-  </div>
-  <div>
-      <p>11am</p>
-      <i class="fas fa-cloud-sun"></i>
-      <p>30;/32;</p>
-  </div>
-  <div>
-      <p>12pm</p>
-      <i class="fas fa-cloud-sun"></i>
-      <p>30;/32;</p>
-  </div>
-  <div>
-      <p>1pm</p>
-      <i class="fas fa-cloud-sun"></i>
-      <p>30;/32;</p>
-  </div>
-  <div>
-      <p>2pm</p>
-      <i class="fas fa-cloud-sun"></i>
-      <p>30;/32;</p>
-  </div>
-  <div>
-      <p>3pm</p>
-      <i class="fas fa-cloud-sun"></i>
-      <p>30;/32;</p>
-  </div>
+  <h2>Next 12hours forcast</h2>
+    <div id="hourly" class="today">
+        
+        <script type="text/javascript">
+          var hourly = "";
+          var i;
+          for( i=0;i<=10;i++){
+              hourly += 
+              "<div>"+
+              "<p id='hourly"+i+"dt'>lkjhgfds</p>"+
+              "<i><img id='hourly"+i+"weathericon' src='icon.png'></i>"+
+              "<p id='hourly"+i+"weatherdescription'>lkjhgfd</p>"+
+              "<p id='hourly"+i+"temp'>kjhgfds suman</p>"+
+              "</div>" ;
+              
+              }
+              document.getElementById('hourly').innerHTML= hourly;
+          </script>
     </div>
   <div class="row">
-    <div class="col-sm-4">
-        <h2 style="margin-bottom: 30px;">Today's Weather</h2>
-        <p>Temparature: 34C</p>
-        <p>Feels like: 30C</p>
-        <p>Wind: 10Km/h</p>
-        <p>Humidity: 85%</p>
-        <p>Amount Of Rain: 5mm</p>
+    <div class="col-sm-4 humidity">
+      <h2 style="margin-bottom: 30px;">Today's Weather</h2>
+      <div><p>Sunrise: </p><p id="currentsunrise">32</p></div>
+      <div><p>Sunset: </p><p id="currentsunset">32</p></div>
+      <div><p>Feels like: </p><p id="currentfeelslike">30</p></div>
+      <div><p>UV Index: </p><p id="currentuvi">32</p></div>
+      <div><p>Wind: </p><p  id="currentwindspeed">10</p></div>
+      <div><p>Humidity: </p><p id="currenthumidity">85</p></div>
+      <div><p>Visibility: </p><p id="currentvisibility">32</p></div>
+      <div><p>Air Pressure: </p><p id="currentpressure">32</p></div>
       <hr class="d-sm-none">
     </div>
-    <div class="col-sm-8 future">
-      <h2 style="margin-bottom: 30px;">Forcast For The Next 4 Days</h2>
-      <div>
-        <div class="coloumn">July 29</div>
-        <div class="coloumn"><i class="fas fa-cloud-sun"></i></div>
-        <div class="coloumn">30&#8451;/32&#8451;</div>
-      </div>
-      <div>
-        <div class="coloumn">July 29</div>
-        <div class="coloumn"><i class="fas fa-cloud-sun"></i></div>
-        <div class="coloumn">30&#8451;/32&#8451;</div>
-      </div>
-      <div>
-        <div class="coloumn">July 29</div>
-        <div class="coloumn"><i class="fas fa-cloud-sun"></i></div>
-        <div class="coloumn">30&#8451;/32&#8451;</div>
-      </div>
-      <div>
-        <div class="coloumn">July 29</div>
-        <div class="coloumn"><i class="fas fa-cloud-sun"></i></div>
-        <div class="coloumn">30&#8451;/32&#8451;</div>
-      </div>
-      <div>
-        <div class="coloumn">July 29</div>
-        <div class="coloumn"><i class="fas fa-cloud-sun"></i></div>
-        <div class="coloumn">30&#8451;/32&#8451;</div>
-      </div>
+    <div class="col-sm-8 future" id="daily">
+      <h2 style="margin-bottom: 30px; ">Forcast For The Next 4 Days</h2>
+      <script type="text/javascript">
+        var daily = "";
+        var j;
+        for( j=0;j<=10;j++){
+         daily += 
+        "<div>"+
+          "<p id='daily"+j+"dt'>1stcol</p>"+
+          "<p id='daily"+j+"weatherdescription'>3rdcol</p>"+
+          "<i><img id='daily"+j+"weathericon' src='icon.png' style='float:left; height: 100%; width: 25%;'></i>"+
+          "<p id='daily"+j+"temp'>4thcol</p>"+
+        "</div>"
+    }
+        document.getElementById('daily').innerHTML= daily;
+    </script>
     </div>
   </div>
 </div>
@@ -201,4 +91,5 @@
 </div>
 
 </body>
+<script src="index.js"></script>
 </html>
