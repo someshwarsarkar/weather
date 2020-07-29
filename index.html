@@ -16,7 +16,7 @@
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0; border-radius: 0px; background-image: url(180421.jpg); background-repeat: no-repeat; background-size: 100% 100%; color: wheat;">
-  <nav class="navbar" style="margin-top: -30px;"><button id="location-button" class="location"><i class="fa">&#xf124;</i></button></nav>
+  <nav class="navbar" style="margin-top: -30px;"><button id="location-button" class="form-control location"><i class="fa">&#xf124;</i></button></nav>
   <h3 id="placename">place name</h3>
   <h2  id="currenttemp">34&#8451; / 27&#8451;</h2>
   <h3 id="currentdtday">Saturday</h3><h3 id="currentdtfull">July 26</h3> 
@@ -52,7 +52,7 @@
           </script>
     </div>
   <div class="row">
-    <div class="col-sm-4 humidity">
+    <div class="col-sm-4 humidity" style="text-align: center;">
       <h2 style="margin-bottom: 30px;">Today's Weather</h2>
       <div><p>Sunrise: </p><p id="currentsunrise">32</p></div>
       <div><p>Sunset: </p><p id="currentsunset">32</p></div>
@@ -64,22 +64,27 @@
       <div><p>Air Pressure: </p><p id="currentpressure">32</p></div>
       <hr class="d-sm-none">
     </div>
-    <div class="col-sm-8 future" id="daily">
-      <h2 style="margin-bottom: 30px; ">Forcast For The Next 4 Days</h2>
+    
+    <div class="col-sm-8 future" style="text-align: center;">
+      <div>
+        <h2 style="margin-bottom: 30px; ">Forcast For The Next 4 Days</h2>
+    </div>
+  <div  id="daily">
       <script type="text/javascript">
         var daily = "";
         var j;
-        for( j=0;j<=10;j++){
+        for( j=0;j<=6;j++){
          daily += 
         "<div>"+
           "<p id='daily"+j+"dt'>1stcol</p>"+
           "<p id='daily"+j+"weatherdescription'>3rdcol</p>"+
-          "<i><img id='daily"+j+"weathericon' src='icon.png' style='float:left; height: 100%; width: 25%;'></i>"+
+          "<i style='float:left; height: 100%; width: 25%;'><img id='daily"+j+"weathericon' src='icon.png' style='width: 50px; height: 50px;' ></i>"+
           "<p id='daily"+j+"temp'>4thcol</p>"+
         "</div>"
     }
         document.getElementById('daily').innerHTML= daily;
     </script>
+    </div>
     </div>
   </div>
 </div>
