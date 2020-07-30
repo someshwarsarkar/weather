@@ -8,6 +8,8 @@ body{
 }
 ::-webkit-scrollbar {
   display: none;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
 }
 .fakeimg {
     height: 200px;
@@ -17,7 +19,7 @@ body{
     font-size: 70px;
 }
 .location-search {
-  width: 200px;
+  width: 50vw;
   height: 50px;
   transition: width 0.5s ease-in-out;
   border-radius: 30px;
@@ -54,12 +56,7 @@ body{
 i{
   font-size: 25px;
 }
-.navbar .location{
-  height: 50px; 
-  width: 50px; 
-  border-radius: 100px; 
-  background-color: lightgreen;
-}
+
 .humidity div p{
   width: 50%;
   height: 100%;

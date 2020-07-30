@@ -15,8 +15,8 @@
 </head>
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0; border-radius: 0px; background-image: url(180421.jpg); background-repeat: no-repeat; background-size: 100% 100%; color: wheat;">
-  <nav class="navbar" style="margin-top: -30px;"><button id="location-button" class="form-control location"><i class="fa">&#xf124;</i></button></nav>
+<div class="jumbotron text-center" id="currentweatherimg" style="background-image: url(180421.jpg); background-repeat: no-repeat; background-size: 100% 100%; color: wheat;">
+  
   <h3 id="placename">place name</h3>
   <h2  id="currenttemp">34&#8451; / 27&#8451;</h2>
   <h3 id="currentdtday">Saturday</h3><h3 id="currentdtfull">July 26</h3> 
@@ -28,9 +28,11 @@
   <div>
   <input type="text" id="inputname" class="form-control location-search" name="search" placeholder="Search Your City...">
   <button class="btn btn-success"  id="submit" type="submit" style="float: left; height: 50px; width: 50px; border-radius: 50px;"><i class="fa fa-search"></i></button>
+  <button class="btn btn-success " style="float: left; height: 50px; width: 50px; border-radius: 50px;margin-left: 6px;" id="location-button" ><i class="fa">&#xf124;</i></button>
 </div>
 </nav>
 
+  
 <div class="container" >
   <h2>Next 12hours forcast</h2>
     <div id="hourly" class="today">
@@ -38,7 +40,7 @@
         <script type="text/javascript">
           var hourly = "";
           var i;
-          for( i=0;i<=10;i++){
+          for( i=0;i<=11;i++){
               hourly += 
               "<div>"+
               "<p id='hourly"+i+"dt'>lkjhgfds</p>"+
@@ -66,14 +68,14 @@
     </div>
     
     <div class="col-sm-8 future" style="text-align: center;">
-      <div>
-        <h2 style="margin-bottom: 30px; ">Forcast For The Next 4 Days</h2>
-    </div>
-  <div  id="daily">
+  
+        <h2 style="margin-bottom: 30px; ">Forcast For The Next 8 Days</h2>
+        <hr />
+        <div  id="daily">
       <script type="text/javascript">
         var daily = "";
         var j;
-        for( j=0;j<=6;j++){
+        for( j=0;j<=7;j++){
          daily += 
         "<div>"+
           "<p id='daily"+j+"dt'>1stcol</p>"+
@@ -91,7 +93,7 @@
 
 <div class="jumbotron text-center" style="margin-bottom:0; border-radius: 0px; color: aliceblue; background-color: darkcyan;">
     <h1>Contact Info</h1>
-    <p>Email: someshwarsarkar@gmail.com</p>
+    <p>ssumansaha6@gmail.com</p>
 
 </div>
 

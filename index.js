@@ -21,9 +21,6 @@ function datecoverter(timestamp){
   
     monthname=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   
-    // date as YYYY-MM-DD format
-    console.log("Date as YYYY-MM-DD Format: " + year + "-" + month + "-" + date);
-    console.log(monthname[month+1]);
     return monthname[month-1]+' '+date;
     }
   
@@ -47,7 +44,6 @@ function datecoverter(timestamp){
       var seconds = ("0" + date_ob.getSeconds()).slice(-2);
   
         // time as hh:mm format: 
-    console.log("Time as hh:mm Format: " + hours + ":" + minutes);//you can also use seconds
       return hours + ":" + minutes;
       }
   
@@ -64,7 +60,6 @@ function datecoverter(timestamp){
     // Note: Sunday is 0, Monday is 1, and so on.
     var dayno= date_ob.getDay();
     dayname = ["Sunday","Monday" ,"Tuesday","Wednesday","Thusday","Friday","Saterday"];
-    console.log(dayname[dayno]);
       return dayname[dayno];
       }
   
@@ -78,38 +73,58 @@ function datecoverter(timestamp){
   
   
   function cityname(latitude,longitude){
-    fetch('https://api.opencagedata.com/geocode/v1/json?q='+latitude+'+'+longitude+'&key=5b28e77f5c474f739d928132f3aa0ca1')
+    fetch('https://api.opencagedata.com/geocode/v1/json?q='+latitude+'+'+longitude+'&key=ff0bddf526ae4f82bee54f6ef844e238') //  5b28e77f5c474f739d928132f3aa0ca1
             .then(response => response.json())
             .then(data => {
-              console.log(data);
-              document.getElementById("placename").innerHTML=data.results[0].formatted;
-  
+              document.getElementById("placename").innerHTML= data.results[0].formatted;
+             
             })
-            .catch((error) => {
+              .catch((error) => {
               console.log(error);
-              document.getElementById("placename").innerHTML="Place out of the world";
-            });
+              
+              });
   
           }
   
   
   function weatherdata(latitude,longitude){
-    fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+latitude+'&lon='+longitude+'&exclude=minutely,&appid=4d8fb5b93d4af21d66a2948710284366')
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+latitude+'&lon='+longitude+'&exclude=minutely,&appid=4d8fb5b93d4af21d66a2948710284366') //bd0a482be066a89d215796065796d6f0
              .then(response => response.json())
              .then(data =>{
-              console.log(data);
               //  current weather 
               document.getElementById('currenttemp').innerHTML = kelvintocelsius(data.current.temp);
               document.getElementById('currentdtday').innerHTML = daynamecoverter(data.current.dt);
               document.getElementById('currentdtfull').innerHTML = datecoverter(data.current.dt);
               document.getElementById('currentweathericon').src = 'http://openweathermap.org/img/wn/'+data.current.weather[0].icon+'@2x.png';
               document.getElementById('currentweatherdescription').innerHTML = data.current.weather[0].description;
+
+              // change the background IMG according to weather
+                    if(data.current.weather[0].main === "Thunderstorm"){
+                document.getElementById('currentweatherimg').style.backgroundImage = "url('gif/Thunderstorm.gif')";
+              }else if(data.current.weather[0].main === "Drizzle"){
+                document.getElementById('currentweatherimg').style.backgroundImage = "url('gif/Drizzle.gif')";
+              }else if(data.current.weather[0].main === "Rain"){
+                document.getElementById('currentweatherimg').style.backgroundImage = "url('gif/Rain.gif')";
+              }else if(data.current.weather[0].main === "Snow"){
+                document.getElementById('currentweatherimg').style.backgroundImage = "url('gif/Snow.gif')";
+              }else if(data.current.weather[0].main === "Mist"){
+                document.getElementById('currentweatherimg').style.backgroundImage = "url('gif/Mist.gif')";
+              }else if(data.current.weather[0].main === "Clear"){
+                document.getElementById('currentweatherimg').style.backgroundImage = "url('gif/Clear.gif')";
+              }else if(data.current.weather[0].main === "Clouds"){
+                document.getElementById('currentweatherimg').style.backgroundImage = "url('gif/Clouds.gif')";
+              }else if(data.current.weather[0].main === "Haze"){
+                document.getElementById('currentweatherimg').style.backgroundImage = "url('gif/Haze.gif')";
+              }
+
+            // \\ change the background IMG according to weather
+
               // current weather in details
               document.getElementById('currentfeelslike').innerHTML = kelvintocelsius(data.current.feels_like);
               document.getElementById('currentuvi').innerHTML = data.current.uvi;
               document.getElementById('currenthumidity').innerHTML = data.current.humidity + " %";
               document.getElementById('currentvisibility').innerHTML = data.current.visibility + " m";
-              document.getElementById('currentwindspeed').innerHTML = data.current.wind_speed + " Km/h";
+              document.getElementById('currentwindspeed').innerHTML = data.current.wind_speed + " m/s";
               document.getElementById('currentpressure').innerHTML = data.current.pressure + " hPa";
               document.getElementById('currentsunrise').innerHTML = timecoverter(data.current.sunrise);
               document.getElementById('currentsunset').innerHTML = timecoverter(data.current.sunset);
@@ -171,12 +186,14 @@ function datecoverter(timestamp){
               document.getElementById('hourly10temp').innerHTML=kelvintocelsius(data.hourly[10].temp);
               document.getElementById('hourly10weathericon').src = 'http://openweathermap.org/img/wn/'+data.hourly[10].weather[0].icon+'@2x.png';
               document.getElementById('hourly10weatherdescription').innerHTML=data.hourly[10].weather[0].description;
-
+              
               document.getElementById('hourly11dt').innerHTML=timecoverter(data.hourly[11].dt);
               document.getElementById('hourly11temp').innerHTML=kelvintocelsius(data.hourly[11].temp);
               document.getElementById('hourly11weathericon').src = 'http://openweathermap.org/img/wn/'+data.hourly[11].weather[0].icon+'@2x.png';
               document.getElementById('hourly11weatherdescription').innerHTML=data.hourly[11].weather[0].description;
 
+            
+              
              
               // \\today hourly weather 
   
@@ -184,50 +201,97 @@ function datecoverter(timestamp){
               document.getElementById('daily0dt').innerHTML = datecoverter(data.daily[0].dt);
               document.getElementById('daily0weatherdescription').innerHTML = data.daily[0].weather[0].description;
               document.getElementById('daily0weathericon').src ='http://openweathermap.org/img/wn/'+data.daily[0].weather[0].icon+'@2x.png';
-              document.getElementById('daily0temp').innerHTML = kelvintocelsius(data.daily[0].temp.max)+'/'+kelvintocelsius(data.daily[0].temp.max);
-  
-  
-        
-              
-              
-  
-              
+              document.getElementById('daily0temp').innerHTML = kelvintocelsius(data.daily[0].temp.max)+'/'+kelvintocelsius(data.daily[0].temp.min);
+
+              document.getElementById('daily1dt').innerHTML = datecoverter(data.daily[1].dt);
+              document.getElementById('daily1weatherdescription').innerHTML = data.daily[1].weather[0].description;
+              document.getElementById('daily1weathericon').src ='http://openweathermap.org/img/wn/'+data.daily[1].weather[0].icon+'@2x.png';
+              document.getElementById('daily1temp').innerHTML = kelvintocelsius(data.daily[1].temp.max)+'/'+kelvintocelsius(data.daily[1].temp.min);
+
+              document.getElementById('daily2dt').innerHTML = datecoverter(data.daily[2].dt);
+              document.getElementById('daily2weatherdescription').innerHTML = data.daily[2].weather[0].description;
+              document.getElementById('daily2weathericon').src ='http://openweathermap.org/img/wn/'+data.daily[2].weather[0].icon+'@2x.png';
+              document.getElementById('daily2temp').innerHTML = kelvintocelsius(data.daily[0].temp.max)+'/'+kelvintocelsius(data.daily[0].temp.min);
+
+              document.getElementById('daily3dt').innerHTML = datecoverter(data.daily[3].dt);
+              document.getElementById('daily3weatherdescription').innerHTML = data.daily[3].weather[0].description;
+              document.getElementById('daily3weathericon').src ='http://openweathermap.org/img/wn/'+data.daily[3].weather[0].icon+'@2x.png';
+              document.getElementById('daily3temp').innerHTML = kelvintocelsius(data.daily[0].temp.max)+'/'+kelvintocelsius(data.daily[0].temp.min);
+
+              document.getElementById('daily4dt').innerHTML = datecoverter(data.daily[4].dt);
+              document.getElementById('daily4weatherdescription').innerHTML = data.daily[4].weather[0].description;
+              document.getElementById('daily4weathericon').src ='http://openweathermap.org/img/wn/'+data.daily[4].weather[0].icon+'@2x.png';
+              document.getElementById('daily4temp').innerHTML = kelvintocelsius(data.daily[4].temp.max)+'/'+kelvintocelsius(data.daily[4].temp.min);
+
+              document.getElementById('daily5dt').innerHTML = datecoverter(data.daily[5].dt);
+              document.getElementById('daily5weatherdescription').innerHTML = data.daily[5].weather[0].description;
+              document.getElementById('daily5weathericon').src ='http://openweathermap.org/img/wn/'+data.daily[5].weather[0].icon+'@2x.png';
+              document.getElementById('daily5temp').innerHTML = kelvintocelsius(data.daily[5].temp.max)+'/'+kelvintocelsius(data.daily[5].temp.min);
+
+              document.getElementById('daily6dt').innerHTML = datecoverter(data.daily[6].dt);
+              document.getElementById('daily6weatherdescription').innerHTML = data.daily[6].weather[0].description;
+              document.getElementById('daily6weathericon').src ='http://openweathermap.org/img/wn/'+data.daily[6].weather[0].icon+'@2x.png';
+              document.getElementById('daily6temp').innerHTML = kelvintocelsius(data.daily[6].temp.max)+'/'+kelvintocelsius(data.daily[6].temp.min);
+
+              document.getElementById('daily7dt').innerHTML = datecoverter(data.daily[7].dt);
+              document.getElementById('daily7weatherdescription').innerHTML = data.daily[7].weather[0].description;
+              document.getElementById('daily7weathericon').src ='http://openweathermap.org/img/wn/'+data.daily[7].weather[0].icon+'@2x.png';
+              document.getElementById('daily7temp').innerHTML = kelvintocelsius(data.daily[7].temp.max)+'/'+kelvintocelsius(data.daily[7].temp.min);
             
-            
-            
-            
+            // \\ future daily day weather
+
+
+
+
+
             });
   
   }
   
+// location dector function
+
   $('#location-button').click(function(){
+    
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position){
-        console.log(position);
-        //cityname(position.coords.latitude, position.coords.longitude);
+        cityname(position.coords.latitude, position.coords.longitude);
        weatherdata(position.coords.latitude, position.coords.longitude); 
   
-      });
+      })
+    }else{
+      alert("you blocked or your borowser dont support location . showing default location kolkata");
     }  
   });
   
+
+  // search function 
   $('#submit').click(function(){
        const name = document.getElementById('inputname').value;
-       console.log(name);
-       fetch('https://api.openweathermap.org/data/2.5/weather?q='+name+'&appid=4d8fb5b93d4af21d66a2948710284366')
+       fetch(' https://api.opencagedata.com/geocode/v1/json?q='+name+'&key=ff0bddf526ae4f82bee54f6ef844e238')  
+      //fetch('https://api.openweathermap.org/data/2.5/weather?q='+name+'&appid=4d8fb5b93d4af21d66a2948710284366')
        .then(response => response.json())
-       .then(data =>{console.log(data);
-        //cityname(data.coord.lat, data.coord.lon); 
-        weatherdata(data.coord.lat, data.coord.lon) ;
-      
-      });
-  });       
+       .then(data =>{
+        cityname(data.results[0].geometry.lat, data.results[0].geometry.lng); //cityname(data.coord.lat, data.coord.lon); 
+        weatherdata(data.results[0].geometry.lat, data.results[0].geometry.lng) ;//weatherdata(data.coord.lat, data.coord.lon) ;
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Location not found. try like this: <city name,state code,country code>");
+          
+          });
+        
+  }); 
   
   
+  // default entry point for application location kolkata
+     $(function defaultlocation() {
+      cityname(22.5454125, 88.3567752); 
+      weatherdata(22.5454125, 88.3567752) ;
+     });
   
-  
-  
-  
+
+   
+
   
   
   
